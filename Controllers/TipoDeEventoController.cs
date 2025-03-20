@@ -1,5 +1,6 @@
 ﻿using Api_Event.Domains;
 using Api_Event.Interface;
+using Api_Event.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api_Event.Controllers
@@ -66,6 +67,17 @@ namespace Api_Event.Controllers
 
         //Metodo listar
         [HttpGet("{id}")]
-        public List<Evento> 
+        public IActionResult Get()
+        {
+            try
+            {
+                List<TipoDeEvento> listarTipoDeEvento = _tipoDeEventoRepository.Listar();
+                return Ok(listarTipoDeEvento);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

@@ -138,6 +138,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Api_Event.Controllers.TipoDeEventoController",
+    "Method": "Get",
+    "RelativePath": "api/TipoDeEvento/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Api_Event.Controllers.TipoDeUsuarioController",
     "Method": "Post",
     "RelativePath": "api/TipoDeUsuario/{id}",
