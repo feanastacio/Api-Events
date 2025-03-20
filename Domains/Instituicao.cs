@@ -10,7 +10,7 @@ namespace Api_Event.Domains
     {
         [Key]
 
-        public Guid InstitucaoId { get; set; }
+        public Guid Institucaoid { get; set; }
         
         [Column(TypeName = "VARCHAR(14)" )]
         [Required(ErrorMessage = "o CNPJ é obrigatório")]

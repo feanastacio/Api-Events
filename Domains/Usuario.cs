@@ -11,7 +11,7 @@ namespace Api_Event.Domains
     {
         [Key]
 
-        public Guid UsuarioId { get; set; }
+        public Guid Usuarioid { get; set; }
 
         [Column(TypeName = "VARCHAR(50)")]
         [Required(ErrorMessage = "O nome e obrigatorio")]
@@ -31,9 +31,9 @@ namespace Api_Event.Domains
 
 
         [Required(ErrorMessage = "Tipo de Usuario obrigatorio")]
-        public Guid TipoDeUsuarioId { get; set; }
+        public Guid TipoDeUsuarioid { get; set; }
 
-        [ForeignKey("TipoDeUsuarioId")]
+        [ForeignKey("TipoDeUsuarioid")]
         public TipoDeUsuario? TipoDeUsuario { get; set; }
         
     }

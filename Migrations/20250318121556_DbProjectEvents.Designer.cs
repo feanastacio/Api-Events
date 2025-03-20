@@ -21,13 +21,13 @@ namespace Api_Event.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.3")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("Relational:MaxidentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("Api_Event.Domains.ComentarioEvento", b =>
                 {
-                    b.Property<Guid>("ComentarioEventoId")
+                    b.Property<Guid>("ComentarioEventoid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -35,30 +35,30 @@ namespace Api_Event.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("EventoId")
+                    b.Property<Guid>("Eventoid")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Exibe")
                         .HasColumnType("BIT");
 
-                    b.Property<Guid>("UsuarioId")
+                    b.Property<Guid>("Usuarioid")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("ComentarioEventoId");
+                    b.HasKey("ComentarioEventoid");
 
-                    b.HasIndex("EventoId");
+                    b.HasIndex("Eventoid");
 
                     b.HasIndex("Exibe")
                         .IsUnique();
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("Usuarioid");
 
                     b.ToTable("ComentarioEvento");
                 });
 
             modelBuilder.Entity("Api_Event.Domains.Evento", b =>
                 {
-                    b.Property<Guid>("EventoId")
+                    b.Property<Guid>("Eventoid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -69,28 +69,28 @@ namespace Api_Event.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("InstituicaoId")
+                    b.Property<Guid>("Instituicaoid")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NomeEvento")
                         .IsRequired()
                         .HasColumnType("VARCHAR(50)");
 
-                    b.Property<Guid>("TipoDeEventoId")
+                    b.Property<Guid>("TipoDeEventoid")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("EventoId");
+                    b.HasKey("Eventoid");
 
-                    b.HasIndex("InstituicaoId");
+                    b.HasIndex("Instituicaoid");
 
-                    b.HasIndex("TipoDeEventoId");
+                    b.HasIndex("TipoDeEventoid");
 
                     b.ToTable("Evento");
                 });
 
             modelBuilder.Entity("Api_Event.Domains.Instituicao", b =>
                 {
-                    b.Property<Guid>("InstitucaoId")
+                    b.Property<Guid>("Institucaoid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -107,7 +107,7 @@ namespace Api_Event.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");
 
-                    b.HasKey("InstitucaoId");
+                    b.HasKey("Institucaoid");
 
                     b.HasIndex("CNPJ")
                         .IsUnique();
@@ -117,35 +117,35 @@ namespace Api_Event.Migrations
 
             modelBuilder.Entity("Api_Event.Domains.Presenca", b =>
                 {
-                    b.Property<Guid>("PresencaId")
+                    b.Property<Guid>("Presencaid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("EventoId")
+                    b.Property<Guid>("Eventoid")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Situacao")
                         .HasColumnType("BIT");
 
-                    b.Property<Guid>("UsuarioId")
+                    b.Property<Guid>("Usuarioid")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("PresencaId");
+                    b.HasKey("Presencaid");
 
-                    b.HasIndex("EventoId")
+                    b.HasIndex("Eventoid")
                         .IsUnique();
 
                     b.HasIndex("Situacao")
                         .IsUnique();
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("Usuarioid");
 
                     b.ToTable("Presenca");
                 });
 
             modelBuilder.Entity("Api_Event.Domains.TipoDeEvento", b =>
                 {
-                    b.Property<Guid>("TipoDeEventoId")
+                    b.Property<Guid>("TipoDeEventoid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -153,14 +153,14 @@ namespace Api_Event.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");
 
-                    b.HasKey("TipoDeEventoId");
+                    b.HasKey("TipoDeEventoid");
 
                     b.ToTable("TipoDeEvento");
                 });
 
             modelBuilder.Entity("Api_Event.Domains.TipoDeUsuario", b =>
                 {
-                    b.Property<Guid>("TipoDeUsuarioId")
+                    b.Property<Guid>("TipoDeUsuarioid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -168,14 +168,14 @@ namespace Api_Event.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(50)");
 
-                    b.HasKey("TipoDeUsuarioId");
+                    b.HasKey("TipoDeUsuarioid");
 
                     b.ToTable("TipoDeUsuario");
                 });
 
             modelBuilder.Entity("Api_Event.Domains.Usuario", b =>
                 {
-                    b.Property<Guid>("UsuarioId")
+                    b.Property<Guid>("Usuarioid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -192,15 +192,15 @@ namespace Api_Event.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("VARCHAR(60)");
 
-                    b.Property<Guid>("TipoDeUsuarioId")
+                    b.Property<Guid>("TipoDeUsuarioid")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("UsuarioId");
+                    b.HasKey("Usuarioid");
 
                     b.HasIndex("EmailUsuario")
                         .IsUnique();
 
-                    b.HasIndex("TipoDeUsuarioId");
+                    b.HasIndex("TipoDeUsuarioid");
 
                     b.ToTable("Usuario");
                 });
@@ -209,13 +209,13 @@ namespace Api_Event.Migrations
                 {
                     b.HasOne("Api_Event.Domains.Evento", "Evento")
                         .WithMany()
-                        .HasForeignKey("EventoId")
+                        .HasForeignKey("Eventoid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Api_Event.Domains.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("Usuarioid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -228,13 +228,13 @@ namespace Api_Event.Migrations
                 {
                     b.HasOne("Api_Event.Domains.Instituicao", "instituicao")
                         .WithMany()
-                        .HasForeignKey("InstituicaoId")
+                        .HasForeignKey("Instituicaoid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Api_Event.Domains.TipoDeEvento", "TipoDeEvento")
                         .WithMany()
-                        .HasForeignKey("TipoDeEventoId")
+                        .HasForeignKey("TipoDeEventoid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -247,13 +247,13 @@ namespace Api_Event.Migrations
                 {
                     b.HasOne("Api_Event.Domains.Evento", "Evento")
                         .WithOne("Presenca")
-                        .HasForeignKey("Api_Event.Domains.Presenca", "EventoId")
+                        .HasForeignKey("Api_Event.Domains.Presenca", "Eventoid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Api_Event.Domains.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("Usuarioid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -266,7 +266,7 @@ namespace Api_Event.Migrations
                 {
                     b.HasOne("Api_Event.Domains.TipoDeUsuario", "TipoDeUsuario")
                         .WithMany()
-                        .HasForeignKey("TipoDeUsuarioId")
+                        .HasForeignKey("TipoDeUsuarioid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

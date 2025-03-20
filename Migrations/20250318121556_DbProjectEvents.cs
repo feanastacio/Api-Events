@@ -15,65 +15,65 @@ namespace Api_Event.Migrations
                 name: "Instituicao",
                 columns: table => new
                 {
-                    InstitucaoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Institucaoid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CNPJ = table.Column<string>(type: "VARCHAR(14)", maxLength: 14, nullable: false),
                     Endereco = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     NomeFantasia = table.Column<string>(type: "VARCHAR(100)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Instituicao", x => x.InstitucaoId);
+                    table.PrimaryKey("PK_Instituicao", x => x.Institucaoid);
                 });
 
             migrationBuilder.CreateTable(
                 name: "TipoDeEvento",
                 columns: table => new
                 {
-                    TipoDeEventoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TipoDeEventoid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TituloTipoEvento = table.Column<string>(type: "VARCHAR(100)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TipoDeEvento", x => x.TipoDeEventoId);
+                    table.PrimaryKey("PK_TipoDeEvento", x => x.TipoDeEventoid);
                 });
 
             migrationBuilder.CreateTable(
                 name: "TipoDeUsuario",
                 columns: table => new
                 {
-                    TipoDeUsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TipoDeUsuarioid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TituloTipoUsuario = table.Column<string>(type: "VARCHAR(50)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TipoDeUsuario", x => x.TipoDeUsuarioId);
+                    table.PrimaryKey("PK_TipoDeUsuario", x => x.TipoDeUsuarioid);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Evento",
                 columns: table => new
                 {
-                    EventoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Eventoid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NomeEvento = table.Column<string>(type: "VARCHAR(50)", nullable: false),
                     DataEvento = table.Column<DateTime>(type: "DATE", nullable: false),
                     DescricaoEvento = table.Column<string>(type: "TEXT", nullable: false),
-                    TipoDeEventoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    InstituicaoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    TipoDeEventoid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Instituicaoid = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Evento", x => x.EventoId);
+                    table.PrimaryKey("PK_Evento", x => x.Eventoid);
                     table.ForeignKey(
-                        name: "FK_Evento_Instituicao_InstituicaoId",
-                        column: x => x.InstituicaoId,
+                        name: "FK_Evento_Instituicao_Instituicaoid",
+                        column: x => x.Instituicaoid,
                         principalTable: "Instituicao",
-                        principalColumn: "InstitucaoId",
+                        principalColumn: "Institucaoid",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Evento_TipoDeEvento_TipoDeEventoId",
-                        column: x => x.TipoDeEventoId,
+                        name: "FK_Evento_TipoDeEvento_TipoDeEventoid",
+                        column: x => x.TipoDeEventoid,
                         principalTable: "TipoDeEvento",
-                        principalColumn: "TipoDeEventoId",
+                        principalColumn: "TipoDeEventoid",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -81,20 +81,20 @@ namespace Api_Event.Migrations
                 name: "Usuario",
                 columns: table => new
                 {
-                    UsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Usuarioid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NomeUsuario = table.Column<string>(type: "VARCHAR(50)", nullable: false),
                     EmailUsuario = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     SenhaUsuario = table.Column<string>(type: "VARCHAR(60)", maxLength: 60, nullable: false),
-                    TipoDeUsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    TipoDeUsuarioid = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuario", x => x.UsuarioId);
+                    table.PrimaryKey("PK_Usuario", x => x.Usuarioid);
                     table.ForeignKey(
-                        name: "FK_Usuario_TipoDeUsuario_TipoDeUsuarioId",
-                        column: x => x.TipoDeUsuarioId,
+                        name: "FK_Usuario_TipoDeUsuario_TipoDeUsuarioid",
+                        column: x => x.TipoDeUsuarioid,
                         principalTable: "TipoDeUsuario",
-                        principalColumn: "TipoDeUsuarioId",
+                        principalColumn: "TipoDeUsuarioid",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -102,26 +102,26 @@ namespace Api_Event.Migrations
                 name: "ComentarioEvento",
                 columns: table => new
                 {
-                    ComentarioEventoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ComentarioEventoid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Comentario = table.Column<string>(type: "TEXT", nullable: false),
                     Exibe = table.Column<bool>(type: "BIT", nullable: false),
-                    UsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    EventoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Usuarioid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Eventoid = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ComentarioEvento", x => x.ComentarioEventoId);
+                    table.PrimaryKey("PK_ComentarioEvento", x => x.ComentarioEventoid);
                     table.ForeignKey(
-                        name: "FK_ComentarioEvento_Evento_EventoId",
-                        column: x => x.EventoId,
+                        name: "FK_ComentarioEvento_Evento_Eventoid",
+                        column: x => x.Eventoid,
                         principalTable: "Evento",
-                        principalColumn: "EventoId",
+                        principalColumn: "Eventoid",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ComentarioEvento_Usuario_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_ComentarioEvento_Usuario_Usuarioid",
+                        column: x => x.Usuarioid,
                         principalTable: "Usuario",
-                        principalColumn: "UsuarioId",
+                        principalColumn: "Usuarioid",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -129,32 +129,32 @@ namespace Api_Event.Migrations
                 name: "Presenca",
                 columns: table => new
                 {
-                    PresencaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Presencaid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Situacao = table.Column<bool>(type: "BIT", nullable: false),
-                    UsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    EventoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Usuarioid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Eventoid = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Presenca", x => x.PresencaId);
+                    table.PrimaryKey("PK_Presenca", x => x.Presencaid);
                     table.ForeignKey(
-                        name: "FK_Presenca_Evento_EventoId",
-                        column: x => x.EventoId,
+                        name: "FK_Presenca_Evento_Eventoid",
+                        column: x => x.Eventoid,
                         principalTable: "Evento",
-                        principalColumn: "EventoId",
+                        principalColumn: "Eventoid",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Presenca_Usuario_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_Presenca_Usuario_Usuarioid",
+                        column: x => x.Usuarioid,
                         principalTable: "Usuario",
-                        principalColumn: "UsuarioId",
+                        principalColumn: "Usuarioid",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ComentarioEvento_EventoId",
+                name: "IX_ComentarioEvento_Eventoid",
                 table: "ComentarioEvento",
-                column: "EventoId");
+                column: "Eventoid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ComentarioEvento_Exibe",
@@ -163,19 +163,19 @@ namespace Api_Event.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ComentarioEvento_UsuarioId",
+                name: "IX_ComentarioEvento_Usuarioid",
                 table: "ComentarioEvento",
-                column: "UsuarioId");
+                column: "Usuarioid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Evento_InstituicaoId",
+                name: "IX_Evento_Instituicaoid",
                 table: "Evento",
-                column: "InstituicaoId");
+                column: "Instituicaoid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Evento_TipoDeEventoId",
+                name: "IX_Evento_TipoDeEventoid",
                 table: "Evento",
-                column: "TipoDeEventoId");
+                column: "TipoDeEventoid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Instituicao_CNPJ",
@@ -184,9 +184,9 @@ namespace Api_Event.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Presenca_EventoId",
+                name: "IX_Presenca_Eventoid",
                 table: "Presenca",
-                column: "EventoId",
+                column: "Eventoid",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -196,9 +196,9 @@ namespace Api_Event.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Presenca_UsuarioId",
+                name: "IX_Presenca_Usuarioid",
                 table: "Presenca",
-                column: "UsuarioId");
+                column: "Usuarioid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuario_EmailUsuario",
@@ -207,9 +207,9 @@ namespace Api_Event.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Usuario_TipoDeUsuarioId",
+                name: "IX_Usuario_TipoDeUsuarioid",
                 table: "Usuario",
-                column: "TipoDeUsuarioId");
+                column: "TipoDeUsuarioid");
         }
 
         /// <inheritdoc />

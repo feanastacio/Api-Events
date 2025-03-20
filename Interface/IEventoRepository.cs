@@ -8,8 +8,8 @@ namespace Api_Event.Interface
         List<Evento> ProximosEventos();
         List<Evento> ListarPorId(int id);
         List<Evento> Listar();
-        Evento BuscarPorId(Guid Id);
-        void Atualizar(Guid Id, Evento evento);
-        void Deletar(Guid Id);
+        Evento BuscarPorid(Guid id);
+        void Atualizar(Guid id, Evento evento);
+        void Deletar(Guid id);
     }
 }

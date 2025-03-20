@@ -8,7 +8,7 @@ namespace Api_Event.Domains
     {
         [Key]
 
-        public Guid TipoDeEventoId { get; set; }
+        public Guid TipoDeEventoid { get; set; }
         [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "O tipo de evento e obrigatorio")]
 

@@ -12,7 +12,7 @@ namespace Api_Event.Domains
     {
         [Key]
 
-        public Guid PresencaId { get; set; }
+        public Guid Presencaid { get; set; }
 
         
         [Column(TypeName = "BIT")]
@@ -22,18 +22,18 @@ namespace Api_Event.Domains
         
         
         [Required(ErrorMessage = "Usuario obrigatorio")]
-        public Guid UsuarioId { get; set; } 
+        public Guid Usuarioid { get; set; } 
 
-        [ForeignKey("UsuarioId")]
+        [ForeignKey("Usuarioid")]
         public Usuario? Usuario { get; set; }
 
 
 
 
         [Required(ErrorMessage = "Evento obrigatorio")]
-        public Guid EventoId { get; set; }
+        public Guid Eventoid { get; set; }
 
-        [ForeignKey("EventoId")]
+        [ForeignKey("Eventoid")]
         public Evento? Evento { get; set; }
 
 

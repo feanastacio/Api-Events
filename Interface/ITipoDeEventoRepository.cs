@@ -5,10 +5,10 @@ namespace Api_Event.Interface
     public interface ITipoDeEventoRepository
     {
        void Cadastrar(TipoDeEvento tipoDeEvento);
-       void Atualizar(Guid Id, TipoDeEvento tipoDeEvento);
-       void Deletar(Guid Id); 
+       void Atualizar(Guid id, TipoDeEvento tipoDeEvento);
+       void Deletar(Guid id); 
 
        List<TipoDeEvento> Listar();
-       TipoDeEvento BuscarPorId(Guid id);
+       TipoDeEvento BuscarPorid(Guid id);
     }
 }

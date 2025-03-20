@@ -25,6 +25,7 @@ namespace Api_Event.Context
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer("Server = DESKTOP-S3CGL03\\SQLEXPRESS; Database=ProjectEvents; User Id = sa; Pwd = Senai@134; TrustServerCertificate=true; ");
+
             }
 
         }

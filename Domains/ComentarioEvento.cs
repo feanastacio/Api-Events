@@ -10,7 +10,7 @@ namespace Api_Event.Domains
     public class ComentarioEvento
     {
         [Key]
-        public  Guid ComentarioEventoId { get; set; }
+        public  Guid ComentarioEventoid { get; set; }
 
         [Column(TypeName = "TEXT")]
         [Required(ErrorMessage = "A descrição é obrigatória")]
@@ -25,18 +25,18 @@ namespace Api_Event.Domains
 
 
         [Required(ErrorMessage = "Usuario obrigatorio")]
-        public Guid UsuarioId { get; set; }
+        public Guid Usuarioid { get; set; }
 
-        [ForeignKey("UsuarioId")]
+        [ForeignKey("Usuarioid")]
         public Usuario? Usuario { get; set; }
 
 
 
 
         [Required(ErrorMessage = "Evento obrigatorio")]
-        public Guid EventoId { get; set; }
+        public Guid Eventoid { get; set; }
 
-        [ForeignKey("EventoId")]
+        [ForeignKey("Eventoid")]
         public Evento? Evento { get; set; }
     }
 }

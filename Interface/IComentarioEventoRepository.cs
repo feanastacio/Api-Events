@@ -8,7 +8,7 @@ namespace Api_Event.Interface
         void Cadastrar(IComentarioEventoRepository comentarioEvento);
         void Deletar(Guid id);
         List<ComentarioEvento> Listar(Guid id);
-        ComentarioEvento BuscarPorIdUsuario(Guid UsuarioId, Guid EventoId);
+        ComentarioEvento BuscarPoridUsuario(Guid Usuarioid, Guid Eventoid);
 
 
 

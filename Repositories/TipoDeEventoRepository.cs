@@ -7,20 +7,25 @@ namespace Api_Event.Repositories
 {
     public class TipoDeEventoRepository : ITipoDeEventoRepository
     {
-        private readonly Event_Context _context;   
+
+        private readonly Event_Context _context;
+
         public TipoDeEventoRepository(Event_Context context)
         {
             _context = context;
         }
 
+        //Atualizar
         public void Atualizar(Guid Id, TipoDeEvento tipoDeEvento)
         {
+
             try
             {
-                TipoDeEvento tipoBuscado = _context.TipoDeEventos.Find(Id)!;
-                if (tipoDeEvento != null)
+                TipoDeEvento tipoEventoBuscado = _context.TipoDeEventos.Find(Id)!;
+
+                if (tipoEventoBuscado != null)
                 {
-                    tipoDeEvento.TituloTipoEvento = tipoDeEvento.TituloTipoEvento;
+                    tipoEventoBuscado.TituloTipoEvento = tipoDeEvento.TituloTipoEvento;
                 }
                 _context.SaveChanges();
             }
@@ -30,11 +35,12 @@ namespace Api_Event.Repositories
             }
         }
 
-        public TipoDeEvento BuscarPorId(Guid Id)
+        //Buscar Por Id
+        public TipoDeEvento BuscarPorid(Guid id)
         {
             try
             {
-                TipoDeEvento tipoDeEvento = _context.TipoDeEventos.Find(Id)!;
+                TipoDeEvento tipoDeEvento = _context.TipoDeEventos.Find(id)!;
                 return tipoDeEvento;
             }
             catch (Exception)
@@ -42,8 +48,10 @@ namespace Api_Event.Repositories
 
                 throw;
             }
+           
         }
 
+        //Cadastrar
         public void Cadastrar(TipoDeEvento novoTipoDeEvento)
         {
             try
@@ -57,6 +65,7 @@ namespace Api_Event.Repositories
             }
         }
 
+        //Deletar
         public void Deletar(Guid Id)
         {
             try
@@ -70,22 +79,24 @@ namespace Api_Event.Repositories
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
+        //Listar
         public List<TipoDeEvento> Listar()
         {
             try
             {
-                List<TipoDeEvento> listaTiposDeEventos = _context.TipoDeEventos.Include(g => g.TituloTipoEvento).ToList();
-                return listaTiposDeEventos;
+                List<TipoDeEvento> listaTipoDeEventos = _context.TipoDeEventos.ToList();
+                return listaTipoDeEventos;
             }
             catch (Exception)
             {
                 throw;
             }
+
         }
+
     }
 }

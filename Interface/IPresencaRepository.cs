@@ -8,7 +8,7 @@ namespace Api_Event.Interface
         void Increver(Presenca inscricao);
         void Atualizar(Guid id,Presenca presenca);
         List<Presenca> Listar();
-        Presenca BuscarPorId(Guid id);
+        Presenca BuscarPorid(Guid id);
         List<Presenca>ListarPresencas(Guid id);
     }
 }

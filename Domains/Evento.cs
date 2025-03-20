@@ -9,7 +9,7 @@ namespace Api_Event.Domains
     {
         [Key]
 
-        public Guid EventoId { get; set; }
+        public Guid Eventoid { get; set; }
 
         [Column(TypeName = "VARCHAR(50)")]
         [Required(ErrorMessage = "O nome do evento e obrigatorio")]
@@ -29,18 +29,18 @@ namespace Api_Event.Domains
 
 
         [Required(ErrorMessage = "Tipo de Evento obrigatorio")]
-        public Guid TipoDeEventoId { get; set; }
+        public Guid TipoDeEventoid { get; set; }
 
-        [ForeignKey("TipoDeEventoId")]
+        [ForeignKey("TipoDeEventoid")]
         public TipoDeEvento? TipoDeEvento { get; set; }
 
 
 
 
         [Required(ErrorMessage = "Campo obrigatorio")]
-        public Guid InstituicaoId { get; set; }
+        public Guid Instituicaoid { get; set; }
 
-        [ForeignKey("InstituicaoId")]
+        [ForeignKey("Instituicaoid")]
         public Instituicao? instituicao { get; set; }
 
         
